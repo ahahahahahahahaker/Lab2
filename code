@@ -1,15 +1,15 @@
 #вариант 4
 import matplotlib.pyplot as graf
 import numpy as np
-kol = 250
+AMOUNT = 250
 def white (text):
     print('\033[1;2;47m {}\033[0m' .format(text))
 def red (text):
     print('\033[41m {}\033[0m' .format(text))
-white('\t \t \t \t \t \t ')
-white('\t \t \t \t \t \t ')
-red('\t \t \t \t \t \t ')
-red('\t \t \t \t \t \t ')
+white(6*'\t ')
+white(6*'\t ')
+red(6*'\t ')
+red(6*'\t ')
 print('\n\033[44m \t \t \t \t \t \t \033[0m')
 print('           \033[44m   \033[0m')
 print('\033[44m \t \t \t \t \t \t \033[0m ')
@@ -20,17 +20,16 @@ x = np.linspace(0,100,1000)
 y = np.sqrt(x)
 ax = ax.plot(x,y)
 graf.show()
-f = open('sequence')
-count1 = 0
-count2 = 0
-for i in range(125):
-    count1 += float(f.readline())
-for i in range(125):
-    count2 += float(f.readline())
-count1 = count1/kol*100
-count2 = count2/kol*100
-names = ['ср знач первых 125', 'зр знач вторых 125']
-values = [count1,count2]
-graf.bar(names,values)
-graf.show()
-f.close()
+with open file as f:
+    count1 = 0
+    count2 = 0
+    for i in range(125):
+        count1 += float(f.readline())
+    for i in range(125):
+        count2 += float(f.readline())
+    count1 = count1/AMOUNT*100
+    count2 = count2/AMOUNT*100
+    names = ['ср знач первых 125', 'зр знач вторых 125']
+    values = [count1,count2]
+    graf.bar(names,values)
+    graf.show()
